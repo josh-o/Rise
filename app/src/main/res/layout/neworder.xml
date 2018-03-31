@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" android:baselineAligned="false">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".3">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="2000dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="37dp"
+                        android:layout_marginStart="37dp"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/brewed_coffee"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/LightRoastButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView"
+                        android:layout_alignStart="@+id/textView"
+                        android:layout_below="@+id/textView"
+                        android:layout_marginTop="29dp"
+                        android:contentDescription="@string/lightroast"
+                        app:srcCompat="@drawable/lightroast" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/LightRoastButton2"
+                        android:layout_alignStart="@+id/LightRoastButton2"
+                        android:layout_below="@+id/LightRoastButton2"
+                        android:layout_marginLeft="51dp"
+                        android:layout_marginStart="51dp"
+                        android:text="@string/light_roast" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/LightRoastButton2"
+                        android:layout_marginLeft="44dp"
+                        android:layout_marginStart="44dp"
+                        android:layout_toEndOf="@+id/LightRoastButton2"
+                        android:layout_toRightOf="@+id/LightRoastButton2"
+                        android:contentDescription="@string/darkroast"
+                        app:srcCompat="@drawable/darkroast" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imageButton3"
+                        android:layout_alignRight="@+id/imageButton3"
+                        android:layout_below="@+id/imageButton3"
+                        android:layout_marginEnd="53dp"
+                        android:layout_marginRight="53dp"
+                        android:text="@string/dark_roast" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/imageButton3"
+                        android:layout_marginLeft="41dp"
+                        android:layout_marginStart="41dp"
+                        android:layout_toEndOf="@+id/imageButton3"
+                        android:layout_toRightOf="@+id/imageButton3"
+                        android:contentDescription="@string/decaf"
+                        app:srcCompat="@drawable/decaf" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imageButton4"
+                        android:layout_alignRight="@+id/imageButton4"
+                        android:layout_below="@+id/imageButton4"
+                        android:layout_marginEnd="62dp"
+                        android:layout_marginRight="62dp"
+                        android:text="@string/decaf" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/LightRoastButton2"
+                        android:layout_alignStart="@+id/LightRoastButton2"
+                        android:layout_below="@+id/textView3"
+                        android:layout_marginTop="38dp"
+                        android:contentDescription="@string/icedcoffee"
+                        app:srcCompat="@drawable/icedcoffee" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView3"
+                        android:layout_alignStart="@+id/textView3"
+                        android:layout_below="@+id/imageButton5"
+                        android:text="@string/iced_coffee" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton3"
+                        android:layout_alignStart="@+id/imageButton3"
+                        android:layout_alignTop="@+id/imageButton5"
+                        android:contentDescription="@string/caffemisto"
+                        app:srcCompat="@drawable/caffemisto" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView4"
+                        android:layout_alignStart="@+id/textView4"
+                        android:layout_below="@+id/imageButton6"
+                        android:text="@string/caffe_misto" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton5"
+                        android:layout_alignStart="@+id/imageButton5"
+                        android:layout_below="@+id/textView6"
+                        android:layout_marginTop="37dp"
+                        android:text="@string/espresso_drinks"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView8"
+                        android:layout_alignStart="@+id/textView8"
+                        android:layout_below="@+id/textView8"
+                        android:layout_marginTop="41dp"
+                        android:contentDescription="@string/caffeeamericano"
+                        app:srcCompat="@drawable/caffeamericano" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton6"
+                        android:layout_alignStart="@+id/imageButton6"
+                        android:layout_alignTop="@+id/imageButton7"
+                        android:contentDescription="@string/caffeelatte"
+                        app:srcCompat="@drawable/caffelatte" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView47"
+                        android:layout_alignLeft="@+id/imageButton4"
+                        android:layout_alignStart="@+id/imageButton4"
+                        android:contentDescription="@string/caffe_latte"
+                        app:srcCompat="@drawable/cafemocha" />
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/textView"
+                        android:layout_alignRight="@+id/textView"
+                        android:layout_below="@+id/imageButton7"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginRight="11dp"
+                        android:text="@string/caffe_americano" />
+
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView45"
+                        android:layout_alignEnd="@+id/textView7"
+                        android:layout_alignRight="@+id/textView7"
+                        android:text="@string/caffe_latte" />
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView46"
+                        android:layout_alignEnd="@+id/imageButton9"
+                        android:layout_alignRight="@+id/imageButton9"
+                        android:layout_marginEnd="51dp"
+                        android:layout_marginRight="51dp"
+                        android:text="@string/caffe_mocha" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton91"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton7"
+                        android:layout_alignStart="@+id/imageButton7"
+                        android:layout_below="@+id/textView45"
+                        android:layout_marginTop="56dp"
+                        android:contentDescription="@string/cappuccino"
+                        app:srcCompat="@drawable/cappuccino" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton92"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton8"
+                        android:layout_alignStart="@+id/imageButton8"
+                        android:layout_alignTop="@+id/imageButton91"
+                        android:contentDescription="@string/caramel_macchiato"
+                        app:srcCompat="@drawable/caramelmacchiato" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton93"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton9"
+                        android:layout_alignStart="@+id/imageButton9"
+                        android:layout_alignTop="@+id/imageButton92"
+                        android:contentDescription="@string/espresso"
+                        app:srcCompat="@drawable/expresso" />
+
+                    <TextView
+                        android:id="@+id/textView48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/textView3"
+                        android:layout_alignRight="@+id/textView3"
+                        android:layout_below="@+id/imageButton92"
+                        android:text="@string/cappuccino" />
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/imageButton92"
+                        android:layout_alignRight="@+id/imageButton92"
+                        android:layout_below="@+id/imageButton92"
+                        android:layout_marginEnd="19dp"
+                        android:layout_marginRight="19dp"
+                        android:text="@string/caramel_macchiato" />
+
+                    <TextView
+                        android:id="@+id/textView51"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/textView47"
+                        android:layout_alignRight="@+id/textView47"
+                        android:layout_below="@+id/imageButton93"
+                        android:text="@string/espresso" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton94"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton91"
+                        android:layout_alignStart="@+id/imageButton91"
+                        android:layout_below="@+id/textView48"
+                        android:layout_marginTop="44dp"
+                        android:contentDescription="@string/flat_white"
+                        app:srcCompat="@drawable/flatwhite" />
+
+                    <TextView
+                        android:id="@+id/textView52"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/textView6"
+                        android:layout_alignStart="@+id/textView6"
+                        android:layout_below="@+id/imageButton94"
+                        android:text="@string/flat_white" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton95"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/imageButton92"
+                        android:layout_alignStart="@+id/imageButton92"
+                        android:layout_alignTop="@+id/imageButton94"
+                        android:contentDescription="@string/latte_macchiato"
+                        app:srcCompat="@drawable/lattemacchiato" />
+
+                    <TextView
+                        android:id="@+id/textView53"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/textView52"
+                        android:layout_alignEnd="@+id/textView4"
+                        android:layout_alignRight="@+id/textView4"
+                        android:text="@string/latte_macchiato" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight=".7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/checkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="84dp"
+            android:contentDescription="@string/checkout"
+            android:text="@string/checkout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:text="@string/order_summary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/orderLine1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp" />
+
+    </RelativeLayout>
+</LinearLayout>

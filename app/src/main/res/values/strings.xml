@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Rise</string>
+    <string name="tab_text_1">New Orders</string>
+    <string name="tab_text_2">Current Orders</string>
+    <string name="tab_text_3">Settings</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="menu">MENU</string>
+    <string name="light_roast">Light Roast</string>
+    <string name="dark_roast">Dark Roast</string>
+    <string name="darkroast">DarkRoast</string>
+    <string name="lightroast">LightRoast</string>
+    <string name="brewed_coffee">Brewed Coffee</string>
+    <string name="decaf">Decaf</string>
+    <string name="icedcoffee">IcedCoffee</string>
+    <string name="iced_coffee">Iced Coffee</string>
+    <string name="caffemisto">CaffeMisto</string>
+    <string name="caffe_misto">Caffe Misto</string>
+    <string name="espresso_drinks">Espresso Drinks</string>
+    <string name="caffeeamericano">CaffeeAmericano</string>
+    <string name="caffeelatte">CaffeeLatte</string>
+    <string name="caffe_americano">Caffe Americano</string>
+    <string name="caffe_mocha">Caffe Mocha</string>
+    <string name="caffe_latte">Caffe Latte</string>
+    <string name="cappuccino">Cappuccino</string>
+    <string name="caramel_macchiato">Caramel Macchiato</string>
+    <string name="espresso">Espresso</string>
+    <string name="flat_white">Flat White</string>
+    <string name="latte_macchiato">Latte Macchiato</string>
+    <string name="checkout">Checkout</string>
+    <string name="order_summary">Order Summary</string>
+    <string-array name="inventoryDropdown">
+        <item>itemName</item>
+        <item>itemNumber</item>
+        <item>qtyAvailable</item>
+        <item>qtyonOrder</item>
+    </string-array>
+</resources>
