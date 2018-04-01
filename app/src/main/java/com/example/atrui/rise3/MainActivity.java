@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
 
+
     ImageButton coffee1Button;
 
 
@@ -148,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+        //new code
 
         @Override
         public int getCount() {
