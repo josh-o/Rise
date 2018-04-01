@@ -64,7 +64,7 @@ public class scheduleActivity extends AppCompatActivity {
                         //textView2.setText(date);
                         textView2.setText(rs.getString(2));
                     }
-                    //test
+                    //test 2
 
 
                 } catch (ClassNotFoundException e) {
