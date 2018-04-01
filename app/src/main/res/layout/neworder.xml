@@ -50,7 +50,6 @@
                         android:layout_below="@+id/textView"
                         android:layout_marginTop="29dp"
                         android:contentDescription="@string/lightroast"
-                        android:onClick="createNewItemPopup2"
                         app:srcCompat="@drawable/lightroast" />
 
                     <TextView

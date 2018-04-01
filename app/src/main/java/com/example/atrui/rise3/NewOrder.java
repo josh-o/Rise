@@ -31,7 +31,6 @@ import java.sql.SQLException;
 
 public class NewOrder extends Fragment{
 
-    Dialog createItemDialog;
     ImageButton lightRoast;
     String lightRoast1 = "Light Roast";
     Button checkOut;
@@ -40,16 +39,17 @@ public class NewOrder extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.neworder, container, false);
+
         lightRoast = (ImageButton) view.findViewById(R.id.LightRoastButton2);
 
     //    String modifyTest = getText().toString();
-    /*    lightRoast.setOnClickListener(new View.OnClickListener(){
+       lightRoast.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
+                chooseItemSizePopup(v);
             }
         });
-    */
+
         checkOut = (Button) view.findViewById(R.id.checkoutButton);
 
         checkOut.setOnClickListener(new View.OnClickListener(){
@@ -64,17 +64,19 @@ public class NewOrder extends Fragment{
     }
 
 
-    public void createNewItemPopup2(View v){
-        createItemDialog.setContentView(R.layout.popup_layout);
-        ImageButton closeDialog = (ImageButton)createItemDialog.findViewById(R.id.closeDialog);
+    public void chooseItemSizePopup(View v){
+
+        final Dialog chooseItemSize = new Dialog(getActivity());
+        chooseItemSize.setContentView(R.layout.popup_layout);
+        ImageButton closeDialog = (ImageButton)chooseItemSize.findViewById(R.id.closeDialog);
         closeDialog.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                createItemDialog.dismiss();
+                chooseItemSize.dismiss();
             }
         });
         //Create new item logic
-        Button createItem = (Button)createItemDialog.findViewById(R.id.createItem);
+        Button createItem = (Button)chooseItemSize.findViewById(R.id.createItem);
         createItem.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -82,12 +84,12 @@ public class NewOrder extends Fragment{
 
 
 
-                createItemDialog.dismiss();
+                chooseItemSize.dismiss();
                 ////displayTable();
             }
         });
-        createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        createItemDialog.show();
+        chooseItemSize.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        chooseItemSize.show();
 
     }
 
