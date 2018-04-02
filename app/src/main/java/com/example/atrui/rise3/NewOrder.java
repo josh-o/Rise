@@ -43,7 +43,7 @@ public class NewOrder extends Fragment{
         lightRoast = (ImageButton) view.findViewById(R.id.LightRoastButton2);
 
     //    String modifyTest = getText().toString();
-       lightRoast.setOnClickListener(new View.OnClickListener(){
+        lightRoast.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 chooseItemSizePopup(v);
@@ -55,10 +55,10 @@ public class NewOrder extends Fragment{
         checkOut.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-
+                checkOutPopup(v);
             }
         });
+
 
         return view;
     }
@@ -68,29 +68,50 @@ public class NewOrder extends Fragment{
 
         final Dialog chooseItemSize = new Dialog(getActivity());
         chooseItemSize.setContentView(R.layout.popup_layout);
-        ImageButton closeDialog = (ImageButton)chooseItemSize.findViewById(R.id.closeDialog);
-        closeDialog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                chooseItemSize.dismiss();
-            }
-        });
-        //Create new item logic
-        Button createItem = (Button)chooseItemSize.findViewById(R.id.createItem);
-        createItem.setOnClickListener(new View.OnClickListener(){
+
+        Button small = (Button)chooseItemSize.findViewById(R.id.smallSize);
+        small.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
 
 
+                TextView orderLine1 = (TextView) view.findViewById(R.id.orderLine1);
+                orderLine1.setText(lightRoast1);
 
                 chooseItemSize.dismiss();
-                ////displayTable();
+
             }
         });
         chooseItemSize.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         chooseItemSize.show();
 
+    }
+
+    public void checkOutPopup(View v){
+        final Dialog enterCustomerName = new Dialog(getActivity());
+        enterCustomerName.setContentView(R.layout.checkout_layout);
+
+        Button payment = (Button)enterCustomerName.findViewById(R.id.payment);
+        payment.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                paymentPopup(v);
+            }
+        });
+
+        enterCustomerName.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        enterCustomerName.show();
+    }
+
+    public void paymentPopup(View v){
+        final Dialog enterPayment = new Dialog(getActivity());
+        enterPayment.setContentView(R.layout.payment_layout);
+
+
+
+        enterPayment.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        enterPayment.show();
     }
 
 }
