@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class scheduleActivity extends AppCompatActivity {
 
-    TextView textView1,textView2;
+    TextView textView1,textView2, textView3, textView4, notesBox;
     String employeeID = "11111";
 
     @Override
@@ -35,6 +35,11 @@ public class scheduleActivity extends AppCompatActivity {
 
         textView1 = (TextView) findViewById(R.id.textViewSchedule);
         textView2 = (TextView) findViewById(R.id.textViewSchedule2);
+
+        textView3 = (TextView) findViewById(R.id.textViewSchedule3);
+        textView4 = (TextView) findViewById(R.id.textViewSchedule4);
+
+        notesBox = (TextView) findViewById(R.id.notesBox);
 
         Button viewScheduleButton = (Button) findViewById(R.id.viewSchedule);
 
@@ -51,7 +56,7 @@ public class scheduleActivity extends AppCompatActivity {
                     String monthS = Integer.toString(month);
                     String yearS = Integer.toString(year);
                     String date = monthS+"/"+dayS+"/"+yearS;
-                    textView1.setText("Schedule for: "+date);
+                    //textView1.setText("Schedule for: "+date);
                     //SQL connection
                     Class.forName("net.sourceforge.jtds.jdbc.Driver");
                     String url = "jdbc:jtds:sqlserver://riseinc3.database.windows.net:1433;databaseName=Schedule;user=jtoverby@riseinc3;password=Awesome33!;";
@@ -60,11 +65,23 @@ public class scheduleActivity extends AppCompatActivity {
 
                     ResultSet rs = pst.executeQuery();
 
-                    while (rs.next()) {
-                        //textView2.setText(date);
-                        textView2.setText(rs.getString(2));
+                    if (rs.wasNull()) {
+
+                        textView1.setText("");
+                        textView2.setText("");
+                        textView3.setText("");
+                        textView4.setText("");
                     }
-                    //test 2
+
+
+                    while (rs.next()) {
+                        textView1.setText(rs.getString(2));
+                        textView2.setText(rs.getString(3));
+                        textView3.setText(rs.getString(4));
+                        textView4.setText(rs.getString(5));
+                        notesBox.setText(rs.getString(10));
+                    }
+
 
 
                 } catch (ClassNotFoundException e) {
