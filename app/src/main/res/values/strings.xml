@@ -29,6 +29,13 @@
     <string name="latte_macchiato">Latte Macchiato</string>
     <string name="checkout">Checkout</string>
     <string name="order_summary">Order Summary</string>
+
+    <string name="textview">Employee</string>
+    <string name="textview2">Shift</string>
+    <string name="view_schedule">View Schedule</string>
+    <string name="notes">Notes</string>
+
+
     <string-array name="inventoryDropdown">
         <item>itemName</item>
         <item>itemNumber</item>
