@@ -41,14 +41,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/textview"
-        android:textColor="#FFFFFFFF"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.669" />
 
     <TextView
         android:id="@+id/textViewSchedule2"
@@ -62,14 +62,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/textview2"
-        android:textColor="#FFFFFFFF"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.694" />
 
     <Button
         android:id="@+id/viewSchedule"
@@ -101,14 +101,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/textview"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintVertical_bias="0.728" />
 
     <TextView
         android:id="@+id/textViewSchedule4"
@@ -121,19 +121,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/textview2"
-        android:textColor="#FFFFFF"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintVertical_bias="0.757" />
 
     <TextView
         android:id="@+id/notesBox"
-        android:layout_width="705dp"
-        android:layout_height="230dp"
+        android:layout_width="374dp"
+        android:layout_height="270dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -141,13 +141,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/notes"
-        android:textColor="@android:color/black"
+        android:textColor="#FFFFFF"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintVertical_bias="0.68" />
 
 </android.support.constraint.ConstraintLayout>
