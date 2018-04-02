@@ -63,7 +63,7 @@ public class inventoryActivity extends AppCompatActivity {
                 EditText itemDetailsField = (EditText)createItemDialog.findViewById(R.id.itemDetails);
                 String itemDetails = itemDetailsField.getText().toString();
 
-
+                //ayyyyyy
 
                 try {
                     //SQL connection
