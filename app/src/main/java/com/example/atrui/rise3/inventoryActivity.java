@@ -71,11 +71,24 @@ public class inventoryActivity extends AppCompatActivity {
                     Connection connect = DriverManager.getConnection(url);
                     PreparedStatement pst = connect.prepareStatement("INSERT INTO Inventory" +"(item_Number, item_Name, qty_Available, qty_onOrder, item_Details) VALUES" +
                             "(?,?,?,?,?)");
-                    pst.setString(1, itemNumber);
-                    pst.setString(2, itemName);
-                    pst.setString(3, qtyAvailable);
-                    pst.setString(4, qtyonOrder);
-                    pst.setString(5, itemDetails);
+
+                    if(!itemNumber.isEmpty() && !itemName.isEmpty() && !qtyAvailable.isEmpty() && !qtyonOrder.isEmpty()){
+                    if(itemNumber.length()<=10){
+                        pst.setString(1, itemNumber);
+                    }
+                    if(itemName.length()<=30) {
+                        pst.setString(2, itemName);
+                    }
+                    if(itemNumber.length()<=10) {
+                        pst.setString(3, qtyAvailable);
+                    }
+                    if(itemNumber.length()<=10) {
+                        pst.setString(4, qtyonOrder);
+                    }
+                    if(itemDetails.length()<=40) {
+                        pst.setString(5, itemDetails);
+                    }
+                    }
                     pst.executeUpdate();
 
 
