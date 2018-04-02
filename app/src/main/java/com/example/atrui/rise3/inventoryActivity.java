@@ -63,15 +63,21 @@ public class inventoryActivity extends AppCompatActivity {
                 EditText itemDetailsField = (EditText)createItemDialog.findViewById(R.id.itemDetails);
                 String itemDetails = itemDetailsField.getText().toString();
 
-                //ayyyyyy
 
                 try {
                     //SQL connection
                     Class.forName("net.sourceforge.jtds.jdbc.Driver");
                     String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
                     Connection connect = DriverManager.getConnection(url);
-                    PreparedStatement pst = connect.prepareStatement("INSERT INTO Inventory (item_Number, item_Name, qty_Available, qty_onOrder, item_Details)" +
-                            "VALUES ('"+itemNumber+"', '"+itemName+"', '"+qtyAvailable+"', '"+qtyonOrder+"', '"+itemDetails+"')");
+                    PreparedStatement pst = connect.prepareStatement("INSERT INTO Inventory" +"(item_Number, item_Name, qty_Available, qty_onOrder, item_Details) VALUES" +
+                            "(?,?,?,?,?)");
+                    pst.setString(1, itemNumber);
+                    pst.setString(2, itemName);
+                    pst.setString(3, qtyAvailable);
+                    pst.setString(4, qtyonOrder);
+                    pst.setString(5, itemDetails);
+                    pst.executeUpdate();
+
 
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
