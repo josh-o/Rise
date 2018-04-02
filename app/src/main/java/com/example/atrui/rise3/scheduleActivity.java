@@ -47,6 +47,12 @@ public class scheduleActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                textView1.setText("None");
+                textView2.setText("None");
+                textView3.setText("None");
+                textView4.setText("None");
+                notesBox.setText("None");
+
                 try {
                     DatePicker datePicker1 = (DatePicker) findViewById(R.id.datePicker1);
                     int day = datePicker1.getDayOfMonth();
@@ -64,15 +70,6 @@ public class scheduleActivity extends AppCompatActivity {
                     PreparedStatement pst = connect.prepareStatement("Select * from Schedule where date='"+date+"' ");
 
                     ResultSet rs = pst.executeQuery();
-
-                    if (rs.wasNull()) {
-
-                        textView1.setText("");
-                        textView2.setText("");
-                        textView3.setText("");
-                        textView4.setText("");
-                    }
-
 
                     while (rs.next()) {
                         textView1.setText(rs.getString(2));
