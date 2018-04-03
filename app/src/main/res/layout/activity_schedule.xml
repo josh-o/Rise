@@ -11,7 +11,7 @@
     tools:context="com.example.atrui.rise3.scheduleActivity">
 
     <DatePicker
-        android:id="@+id/datePicker1"
+        android:id="@+id/calendar"
         android:layout_width="549dp"
         android:layout_height="218dp"
         android:layout_marginBottom="8dp"
@@ -24,13 +24,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewSchedule2"
+        app:layout_constraintStart_toEndOf="@+id/oneShift"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.378" />
 
     <TextView
-        android:id="@+id/textViewSchedule"
+        android:id="@+id/one"
         android:layout_width="152dp"
         android:layout_height="19dp"
         android:layout_alignParentLeft="true"
@@ -40,7 +40,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/textview"
+        android:text="@string/emp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,17 +51,17 @@
         app:layout_constraintVertical_bias="0.669" />
 
     <TextView
-        android:id="@+id/textViewSchedule2"
+        android:id="@+id/oneShift"
         android:layout_width="153dp"
         android:layout_height="21dp"
-        android:layout_alignLeft="@+id/textViewSchedule"
-        android:layout_alignStart="@+id/textViewSchedule"
-        android:layout_alignTop="@+id/datePicker1"
+        android:layout_alignLeft="@+id/one"
+        android:layout_alignStart="@+id/one"
+        android:layout_alignTop="@+id/calendar"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/textview2"
+        android:text="@string/shift"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,9 +75,9 @@
         android:id="@+id/viewSchedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/datePicker1"
-        android:layout_alignRight="@+id/datePicker1"
-        android:layout_below="@+id/datePicker1"
+        android:layout_alignEnd="@+id/calendar"
+        android:layout_alignRight="@+id/calendar"
+        android:layout_below="@+id/calendar"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -91,7 +91,7 @@
         app:layout_constraintVertical_bias="0.719" />
 
     <TextView
-        android:id="@+id/textViewSchedule3"
+        android:id="@+id/two"
         android:layout_width="153dp"
         android:layout_height="22dp"
         android:layout_marginBottom="8dp"
@@ -100,7 +100,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/textview"
+        android:text="@string/emp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,7 +111,7 @@
         app:layout_constraintVertical_bias="0.728" />
 
     <TextView
-        android:id="@+id/textViewSchedule4"
+        android:id="@+id/twoShift"
         android:layout_width="156dp"
         android:layout_height="23dp"
         android:layout_marginBottom="8dp"
@@ -120,7 +120,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/textview2"
+        android:text="@string/shift"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

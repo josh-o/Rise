@@ -21,9 +21,8 @@ import java.util.Calendar;
 
 public class scheduleActivity extends AppCompatActivity {
 
-    TextView textView1,textView2, textView3, textView4, notesBox;
-    String employeeID = "11111";
-
+    TextView empOne,empOneShift, empTwo, empTwoShift, notesBox;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +32,10 @@ public class scheduleActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        textView1 = (TextView) findViewById(R.id.textViewSchedule);
-        textView2 = (TextView) findViewById(R.id.textViewSchedule2);
-
-        textView3 = (TextView) findViewById(R.id.textViewSchedule3);
-        textView4 = (TextView) findViewById(R.id.textViewSchedule4);
+        empOne = (TextView) findViewById(R.id.one);
+        empOneShift = (TextView) findViewById(R.id.oneShift);
+        empTwo = (TextView) findViewById(R.id.two);
+        empTwoShift = (TextView) findViewById(R.id.twoShift);
 
         notesBox = (TextView) findViewById(R.id.notesBox);
 
@@ -47,46 +45,44 @@ public class scheduleActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                textView1.setText("None");
-                textView2.setText("None");
-                textView3.setText("None");
-                textView4.setText("None");
-                notesBox.setText("None");
+                empOne.setText("--------");
+                empOneShift.setText("--------");
+                empTwo.setText("--------");
+                empTwoShift.setText("--------");
+                notesBox.setText("--------");
 
                 try {
-                    DatePicker datePicker1 = (DatePicker) findViewById(R.id.datePicker1);
-                    int day = datePicker1.getDayOfMonth();
-                    int month = datePicker1.getMonth()+1;
-                    int year = datePicker1.getYear();
+                    DatePicker calendar = (DatePicker) findViewById(R.id.calendar);
+
+                    int day = calendar.getDayOfMonth();
+                    int month = calendar.getMonth()+1;
+                    int year = calendar.getYear();
                     String dayS = Integer.toString(day);
                     String monthS = Integer.toString(month);
                     String yearS = Integer.toString(year);
                     String date = monthS+"/"+dayS+"/"+yearS;
-                    //textView1.setText("Schedule for: "+date);
+
                     //SQL connection
                     Class.forName("net.sourceforge.jtds.jdbc.Driver");
                     String url = "jdbc:jtds:sqlserver://riseinc3.database.windows.net:1433;databaseName=Schedule;user=jtoverby@riseinc3;password=Awesome33!;";
                     Connection connect = DriverManager.getConnection(url);
                     PreparedStatement pst = connect.prepareStatement("Select * from Schedule where date='"+date+"' ");
-
                     ResultSet rs = pst.executeQuery();
 
                     while (rs.next()) {
-                        textView1.setText(rs.getString(2));
-                        textView2.setText(rs.getString(3));
-                        textView3.setText(rs.getString(4));
-                        textView4.setText(rs.getString(5));
+                        empOne.setText(rs.getString(2));
+                        empOneShift.setText(rs.getString(3));
+                        empTwo.setText(rs.getString(4));
+                        empTwoShift.setText(rs.getString(5));
                         notesBox.setText(rs.getString(10));
                     }
-
-
 
                 } catch (ClassNotFoundException e) {
                  e.printStackTrace();
                  } catch (SQLException e) {
                  e.printStackTrace();
                  }
-               //chris test
+
             }
 
         });

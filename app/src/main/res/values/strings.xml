@@ -30,8 +30,8 @@
     <string name="checkout">Checkout</string>
     <string name="order_summary">Order Summary</string>
 
-    <string name="textview">Employee</string>
-    <string name="textview2">Shift</string>
+    <string name="emp">Employee</string>
+    <string name="shift">Shift</string>
     <string name="view_schedule">View Schedule</string>
     <string name="notes">Notes</string>
 
