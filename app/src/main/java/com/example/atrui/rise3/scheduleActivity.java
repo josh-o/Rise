@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class scheduleActivity extends AppCompatActivity {
 
-    TextView empOne,empOneShift, empTwo, empTwoShift, notesBox;
+    TextView empOne,empOneShift, empTwo, empTwoShift, empThree, empThreeShift,empFour, empFourShift, notesBox;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,10 @@ public class scheduleActivity extends AppCompatActivity {
         empOneShift = (TextView) findViewById(R.id.oneShift);
         empTwo = (TextView) findViewById(R.id.two);
         empTwoShift = (TextView) findViewById(R.id.twoShift);
+        empThree = (TextView) findViewById(R.id.three);
+        empThreeShift = (TextView) findViewById(R.id.threeShift);
+        empFour = (TextView) findViewById(R.id.four);
+        empFourShift = (TextView) findViewById(R.id.fourShift);
 
         notesBox = (TextView) findViewById(R.id.notesBox);
 
@@ -45,11 +49,15 @@ public class scheduleActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                empOne.setText("--------");
-                empOneShift.setText("--------");
-                empTwo.setText("--------");
-                empTwoShift.setText("--------");
-                notesBox.setText("--------");
+                empOne.setText("No Shifts Scheduled");
+                empOneShift.setText("");
+                empTwo.setText("");
+                empTwoShift.setText("");
+                empThree.setText("");
+                empThreeShift.setText("");
+                empFour.setText("");
+                empFourShift.setText("");
+                notesBox.setText("");
 
                 try {
                     DatePicker calendar = (DatePicker) findViewById(R.id.calendar);
@@ -74,6 +82,10 @@ public class scheduleActivity extends AppCompatActivity {
                         empOneShift.setText(rs.getString(3));
                         empTwo.setText(rs.getString(4));
                         empTwoShift.setText(rs.getString(5));
+                        empThree.setText(rs.getString(6));
+                        empThreeShift.setText(rs.getString(7));
+                        empFour.setText(rs.getString(8));
+                        empFourShift.setText(rs.getString(9));
                         notesBox.setText(rs.getString(10));
                     }
 
