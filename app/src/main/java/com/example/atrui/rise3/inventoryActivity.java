@@ -107,6 +107,133 @@ public class inventoryActivity extends AppCompatActivity {
 
     }
 
+    public void updateItemPopup(View v){
+        createItemDialog.setContentView(R.layout.inventory_popup2);
+        ImageButton closeDialog = (ImageButton)createItemDialog.findViewById(R.id.closeDialog);
+        closeDialog.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                createItemDialog.dismiss();
+            }
+        });
+        Button selectItem = (Button)createItemDialog.findViewById(R.id.select);
+        selectItem.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //Get values from each field in inventory popup
+                EditText updateItemNumberField = (EditText)createItemDialog.findViewById(R.id.updateItemNumber);
+                String updateItemNumber = updateItemNumberField.getText().toString();
+
+                EditText itemNumberField = (EditText)createItemDialog.findViewById(R.id.itemNumber);
+                //String itemNumber = itemNumberField.getText().toString();
+
+                EditText itemNameField = (EditText)createItemDialog.findViewById(R.id.itemName);
+                //String itemName = itemNameField.getText().toString();
+
+                EditText qtyAvailableField = (EditText)createItemDialog.findViewById(R.id.qtyAvailable);
+                //String qtyAvailable = qtyAvailableField.getText().toString();
+
+                EditText qtyonOrderField = (EditText)createItemDialog.findViewById(R.id.qtyonOrder);
+                //String qtyonOrder = qtyonOrderField.getText().toString();
+
+                EditText itemDetailsField = (EditText)createItemDialog.findViewById(R.id.itemDetails);
+                //String itemDetails = itemDetailsField.getText().toString();
+
+
+                try {
+                    //SQL connection
+                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                    String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
+                    Connection connect = DriverManager.getConnection(url);
+                    PreparedStatement pst = connect.prepareStatement("Select * from Inventory WHERE item_Number = '"+updateItemNumber+"'");
+                    ResultSet rs = pst.executeQuery();
+
+                    while (rs.next()) {
+
+                        itemNumberField.setText(rs.getString(1));
+                        itemNameField.setText(rs.getString(2));
+                        qtyAvailableField.setText(rs.getString(3));
+                        qtyonOrderField.setText(rs.getString(4));
+                        itemDetailsField.setText(rs.getString(5));
+
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        });
+        //Update item logic
+        Button updateItem = (Button)createItemDialog.findViewById(R.id.update);
+        updateItem.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                //Get values from each field in inventory popup
+                EditText itemNumberField = (EditText)createItemDialog.findViewById(R.id.itemNumber);
+                String itemNumber = itemNumberField.getText().toString();
+
+                EditText itemNameField = (EditText)createItemDialog.findViewById(R.id.itemName);
+                String itemName = itemNameField.getText().toString();
+
+                EditText qtyAvailableField = (EditText)createItemDialog.findViewById(R.id.qtyAvailable);
+                String qtyAvailable = qtyAvailableField.getText().toString();
+
+                EditText qtyonOrderField = (EditText)createItemDialog.findViewById(R.id.qtyonOrder);
+                String qtyonOrder = qtyonOrderField.getText().toString();
+
+                EditText itemDetailsField = (EditText)createItemDialog.findViewById(R.id.itemDetails);
+                String itemDetails = itemDetailsField.getText().toString();
+
+
+                try {
+                    //SQL connection
+                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                    String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
+                    Connection connect = DriverManager.getConnection(url);
+                    PreparedStatement pst = connect.prepareStatement("INSERT INTO Inventory" +"(item_Number, item_Name, qty_Available, qty_onOrder, item_Details) VALUES" +
+                            "(?,?,?,?,?)");
+
+                    if(!itemNumber.isEmpty() && !itemName.isEmpty() && !qtyAvailable.isEmpty() && !qtyonOrder.isEmpty()){
+                        if(itemNumber.length()<=10){
+                            pst.setString(1, itemNumber);
+                        }
+                        if(itemName.length()<=30) {
+                            pst.setString(2, itemName);
+                        }
+                        if(itemNumber.length()<=10) {
+                            pst.setString(3, qtyAvailable);
+                        }
+                        if(itemNumber.length()<=10) {
+                            pst.setString(4, qtyonOrder);
+                        }
+                        if(itemDetails.length()<=40) {
+                            pst.setString(5, itemDetails);
+                        }
+                    }
+                    pst.executeUpdate();
+
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                createItemDialog.dismiss();
+                displayTable();
+            }
+        });
+        createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        createItemDialog.show();
+
+    }
+
     void updateTable(final String col1, final String col2, final String col3, final String col4, final String col5){
 
         runOnUiThread(new Runnable()
