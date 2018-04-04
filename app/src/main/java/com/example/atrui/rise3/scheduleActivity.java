@@ -44,6 +44,7 @@ public class scheduleActivity extends AppCompatActivity {
         notesBox = (TextView) findViewById(R.id.notesBox);
 
         Button viewScheduleButton = (Button) findViewById(R.id.viewSchedule);
+        Button editScheduleButton = (Button) findViewById(R.id.editSchedule);
 
         viewScheduleButton.setOnClickListener(new View.OnClickListener(){
 
