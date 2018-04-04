@@ -64,7 +64,7 @@
                         android:text="@string/light_roast" />
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/DarkRoastButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/LightRoastButton2"
@@ -79,22 +79,22 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imageButton3"
-                        android:layout_alignRight="@+id/imageButton3"
-                        android:layout_below="@+id/imageButton3"
+                        android:layout_alignEnd="@+id/DarkRoastButton"
+                        android:layout_alignRight="@+id/DarkRoastButton"
+                        android:layout_below="@+id/DarkRoastButton"
                         android:layout_marginEnd="53dp"
                         android:layout_marginRight="53dp"
                         android:text="@string/dark_roast" />
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/DecafButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/imageButton3"
+                        android:layout_alignTop="@+id/DarkRoastButton"
                         android:layout_marginLeft="41dp"
                         android:layout_marginStart="41dp"
-                        android:layout_toEndOf="@+id/imageButton3"
-                        android:layout_toRightOf="@+id/imageButton3"
+                        android:layout_toEndOf="@+id/DarkRoastButton"
+                        android:layout_toRightOf="@+id/DarkRoastButton"
                         android:contentDescription="@string/decaf"
                         app:srcCompat="@drawable/decaf" />
 
@@ -102,9 +102,9 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imageButton4"
-                        android:layout_alignRight="@+id/imageButton4"
-                        android:layout_below="@+id/imageButton4"
+                        android:layout_alignEnd="@+id/DecafButton"
+                        android:layout_alignRight="@+id/DecafButton"
+                        android:layout_below="@+id/DecafButton"
                         android:layout_marginEnd="62dp"
                         android:layout_marginRight="62dp"
                         android:text="@string/decaf" />
@@ -133,8 +133,8 @@
                         android:id="@+id/imageButton6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton3"
-                        android:layout_alignStart="@+id/imageButton3"
+                        android:layout_alignLeft="@+id/DarkRoastButton"
+                        android:layout_alignStart="@+id/DarkRoastButton"
                         android:layout_alignTop="@+id/imageButton5"
                         android:contentDescription="@string/caffemisto"
                         app:srcCompat="@drawable/caffemisto" />
@@ -186,8 +186,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/textView47"
-                        android:layout_alignLeft="@+id/imageButton4"
-                        android:layout_alignStart="@+id/imageButton4"
+                        android:layout_alignLeft="@+id/DecafButton"
+                        android:layout_alignStart="@+id/DecafButton"
                         android:contentDescription="@string/caffe_latte"
                         app:srcCompat="@drawable/cafemocha" />
 
@@ -327,10 +327,29 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_weight=".7"
+        android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight=".7">
 
+
+        <LinearLayout
+            android:id="@+id/orderSummaryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="683dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="55dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderLine1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/checkoutButton"
@@ -343,6 +362,7 @@
             android:text="@string/checkout" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -350,16 +370,7 @@
             android:layout_marginTop="23dp"
             android:text="@string/order_summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="bold"
-            android:id="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/orderLine1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp" />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.PopupWindow;
 import android.view.ViewGroup.LayoutParams;
@@ -32,23 +34,44 @@ import java.sql.SQLException;
 public class NewOrder extends Fragment{
 
     ImageButton lightRoast;
-    String lightRoast1 = "Light Roast";
+    ImageButton darkRoast;
+    ImageButton decaf;
     Button checkOut;
+    String itemChoice;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.neworder, container, false);
 
+        //Light Roast
         lightRoast = (ImageButton) view.findViewById(R.id.LightRoastButton2);
-
-    //    String modifyTest = getText().toString();
         lightRoast.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                chooseItemSizePopup(v);
+                itemChoice = "Light Roast";
+                chooseItemSizePopup();
             }
         });
+        //Dark Roast
+        darkRoast = (ImageButton) view.findViewById(R.id.DarkRoastButton);
+        darkRoast.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Dark Roast";
+                chooseItemSizePopup();
+            }
+        });
+        //Decaf
+        decaf = (ImageButton) view.findViewById(R.id.DecafButton);
+        decaf.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Decaf";
+                chooseItemSizePopup();
+            }
+        });
+
 
         checkOut = (Button) view.findViewById(R.id.checkoutButton);
 
@@ -56,33 +79,58 @@ public class NewOrder extends Fragment{
             @Override
             public void onClick(View v){
                 checkOutPopup(v);
+
             }
         });
-
 
         return view;
     }
 
 
-    public void chooseItemSizePopup(View v){
-
+    public void chooseItemSizePopup(){
         final Dialog chooseItemSize = new Dialog(getActivity());
+        final LinearLayout orderLayout = (LinearLayout) getActivity().findViewById(R.id.orderSummaryLayout);
         chooseItemSize.setContentView(R.layout.popup_layout);
 
+        //Choose Size
+
+        //Small
         Button small = (Button)chooseItemSize.findViewById(R.id.smallSize);
         small.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
-
-
-                TextView orderLine1 = (TextView) view.findViewById(R.id.orderLine1);
-                orderLine1.setText(lightRoast1);
-
                 chooseItemSize.dismiss();
-
+                TextView line1 = new TextView(getContext());
+                line1.setText(itemChoice + " - Small");
+                chooseItemSize.setContentView(R.layout.neworder);
+                orderLayout.addView(line1);
             }
         });
+        //Medium
+        Button medium = (Button)chooseItemSize.findViewById(R.id.mediumSize);
+        medium.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                chooseItemSize.dismiss();
+                TextView line1 = new TextView(getContext());
+                line1.setText(itemChoice + " - Medium");
+                chooseItemSize.setContentView(R.layout.neworder);
+                orderLayout.addView(line1);
+            }
+        });
+        //Large
+        Button large = (Button)chooseItemSize.findViewById(R.id.largeSize);
+        large.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                chooseItemSize.dismiss();
+                TextView line1 = new TextView(getContext());
+                line1.setText(itemChoice + " - Large");
+                chooseItemSize.setContentView(R.layout.neworder);
+                orderLayout.addView(line1);
+            }
+        });
+
         chooseItemSize.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         chooseItemSize.show();
 
