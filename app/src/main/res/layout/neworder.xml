@@ -15,7 +15,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#D5DBDB">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -54,7 +55,7 @@
                         app:srcCompat="@drawable/lightroast" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/LightRoastD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/LightRoastButton2"
@@ -77,7 +78,7 @@
                         app:srcCompat="@drawable/darkroast" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/DarkRoastD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignEnd="@+id/DarkRoastButton"
@@ -100,7 +101,7 @@
                         app:srcCompat="@drawable/decaf" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/DecafD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignEnd="@+id/DecafButton"
@@ -116,17 +117,17 @@
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/LightRoastButton2"
                         android:layout_alignStart="@+id/LightRoastButton2"
-                        android:layout_below="@+id/textView3"
+                        android:layout_below="@+id/LightRoastD"
                         android:layout_marginTop="38dp"
                         android:contentDescription="@string/icedcoffee"
                         app:srcCompat="@drawable/icedcoffee" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/IcedCoffeeD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/textView3"
-                        android:layout_alignStart="@+id/textView3"
+                        android:layout_alignLeft="@+id/LightRoastD"
+                        android:layout_alignStart="@+id/LightRoastD"
                         android:layout_below="@+id/IcedCoffeeButton"
                         android:text="@string/iced_coffee" />
 
@@ -141,135 +142,135 @@
                         app:srcCompat="@drawable/caffemisto" />
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/CaffeMistoD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/textView4"
-                        android:layout_alignStart="@+id/textView4"
+                        android:layout_alignLeft="@+id/DarkRoastD"
+                        android:layout_alignStart="@+id/DarkRoastD"
                         android:layout_below="@+id/CaffeMistoButton"
                         android:text="@string/caffe_misto" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/EspressoD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/IcedCoffeeButton"
                         android:layout_alignStart="@+id/IcedCoffeeButton"
-                        android:layout_below="@+id/textView6"
+                        android:layout_below="@+id/IcedCoffeeD"
                         android:layout_marginTop="37dp"
                         android:text="@string/espresso_drinks"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold" />
 
                     <ImageButton
-                        android:id="@+id/imageButton7"
+                        android:id="@+id/CAmericanoButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/textView8"
-                        android:layout_alignStart="@+id/textView8"
-                        android:layout_below="@+id/textView8"
+                        android:layout_alignLeft="@+id/EspressoD"
+                        android:layout_alignStart="@+id/EspressoD"
+                        android:layout_below="@+id/EspressoD"
                         android:layout_marginTop="41dp"
                         android:contentDescription="@string/caffeeamericano"
                         app:srcCompat="@drawable/caffeamericano" />
 
                     <ImageButton
-                        android:id="@+id/imageButton8"
+                        android:id="@+id/CLatteButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/CaffeMistoButton"
                         android:layout_alignStart="@+id/CaffeMistoButton"
-                        android:layout_alignTop="@+id/imageButton7"
+                        android:layout_alignTop="@+id/CAmericanoButton"
                         android:contentDescription="@string/caffeelatte"
                         app:srcCompat="@drawable/caffelatte" />
 
                     <ImageButton
-                        android:id="@+id/imageButton9"
+                        android:id="@+id/CaffeMochaButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_above="@+id/textView47"
+                        android:layout_above="@+id/CMochaD"
                         android:layout_alignLeft="@+id/DecafButton"
                         android:layout_alignStart="@+id/DecafButton"
                         android:contentDescription="@string/caffe_latte"
                         app:srcCompat="@drawable/cafemocha" />
 
                     <TextView
-                        android:id="@+id/textView45"
+                        android:id="@+id/CAmericanoD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignEnd="@+id/textView"
                         android:layout_alignRight="@+id/textView"
-                        android:layout_below="@+id/imageButton7"
+                        android:layout_below="@+id/CAmericanoButton"
                         android:layout_marginEnd="11dp"
                         android:layout_marginRight="11dp"
                         android:text="@string/caffe_americano" />
 
                     <TextView
-                        android:id="@+id/textView46"
+                        android:id="@+id/CaffeLatteD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView45"
-                        android:layout_alignEnd="@+id/textView7"
-                        android:layout_alignRight="@+id/textView7"
+                        android:layout_alignBottom="@+id/CAmericanoD"
+                        android:layout_alignEnd="@+id/CaffeMistoD"
+                        android:layout_alignRight="@+id/CaffeMistoD"
                         android:text="@string/caffe_latte" />
 
                     <TextView
-                        android:id="@+id/textView47"
+                        android:id="@+id/CMochaD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView46"
-                        android:layout_alignEnd="@+id/imageButton9"
-                        android:layout_alignRight="@+id/imageButton9"
+                        android:layout_alignBottom="@+id/CaffeLatteD"
+                        android:layout_alignEnd="@+id/CaffeMochaButton"
+                        android:layout_alignRight="@+id/CaffeMochaButton"
                         android:layout_marginEnd="51dp"
                         android:layout_marginRight="51dp"
                         android:text="@string/caffe_mocha" />
 
                     <ImageButton
-                        android:id="@+id/imageButton91"
+                        android:id="@+id/CappuccinoButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton7"
-                        android:layout_alignStart="@+id/imageButton7"
-                        android:layout_below="@+id/textView45"
+                        android:layout_alignLeft="@+id/CAmericanoButton"
+                        android:layout_alignStart="@+id/CAmericanoButton"
+                        android:layout_below="@+id/CAmericanoD"
                         android:layout_marginTop="56dp"
                         android:contentDescription="@string/cappuccino"
                         app:srcCompat="@drawable/cappuccino" />
 
                     <ImageButton
-                        android:id="@+id/imageButton92"
+                        android:id="@+id/CMaccButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton8"
-                        android:layout_alignStart="@+id/imageButton8"
-                        android:layout_alignTop="@+id/imageButton91"
+                        android:layout_alignLeft="@+id/CLatteButton"
+                        android:layout_alignStart="@+id/CLatteButton"
+                        android:layout_alignTop="@+id/CappuccinoButton"
                         android:contentDescription="@string/caramel_macchiato"
                         app:srcCompat="@drawable/caramelmacchiato" />
 
                     <ImageButton
-                        android:id="@+id/imageButton93"
+                        android:id="@+id/EspressoButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton9"
-                        android:layout_alignStart="@+id/imageButton9"
-                        android:layout_alignTop="@+id/imageButton92"
+                        android:layout_alignLeft="@+id/CaffeMochaButton"
+                        android:layout_alignStart="@+id/CaffeMochaButton"
+                        android:layout_alignTop="@+id/CMaccButton"
                         android:contentDescription="@string/espresso"
                         app:srcCompat="@drawable/expresso" />
 
                     <TextView
-                        android:id="@+id/textView48"
+                        android:id="@+id/CappD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/textView3"
-                        android:layout_alignRight="@+id/textView3"
-                        android:layout_below="@+id/imageButton92"
+                        android:layout_alignEnd="@+id/LightRoastD"
+                        android:layout_alignRight="@+id/LightRoastD"
+                        android:layout_below="@+id/CMaccButton"
                         android:text="@string/cappuccino" />
 
                     <TextView
-                        android:id="@+id/textView49"
+                        android:id="@+id/CMaccD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imageButton92"
-                        android:layout_alignRight="@+id/imageButton92"
-                        android:layout_below="@+id/imageButton92"
+                        android:layout_alignEnd="@+id/CMaccButton"
+                        android:layout_alignRight="@+id/CMaccButton"
+                        android:layout_below="@+id/CMaccButton"
                         android:layout_marginEnd="19dp"
                         android:layout_marginRight="19dp"
                         android:text="@string/caramel_macchiato" />
@@ -278,48 +279,48 @@
                         android:id="@+id/textView51"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/textView47"
-                        android:layout_alignRight="@+id/textView47"
-                        android:layout_below="@+id/imageButton93"
+                        android:layout_alignEnd="@+id/CMochaD"
+                        android:layout_alignRight="@+id/CMochaD"
+                        android:layout_below="@+id/EspressoButton"
                         android:text="@string/espresso" />
 
                     <ImageButton
-                        android:id="@+id/imageButton94"
+                        android:id="@+id/FlatWhiteButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton91"
-                        android:layout_alignStart="@+id/imageButton91"
-                        android:layout_below="@+id/textView48"
+                        android:layout_alignLeft="@+id/CappuccinoButton"
+                        android:layout_alignStart="@+id/CappuccinoButton"
+                        android:layout_below="@+id/CappD"
                         android:layout_marginTop="44dp"
                         android:contentDescription="@string/flat_white"
                         app:srcCompat="@drawable/flatwhite" />
 
                     <TextView
-                        android:id="@+id/textView52"
+                        android:id="@+id/FlatWhiteD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/textView6"
-                        android:layout_alignStart="@+id/textView6"
-                        android:layout_below="@+id/imageButton94"
+                        android:layout_alignLeft="@+id/IcedCoffeeD"
+                        android:layout_alignStart="@+id/IcedCoffeeD"
+                        android:layout_below="@+id/FlatWhiteButton"
                         android:text="@string/flat_white" />
 
                     <ImageButton
-                        android:id="@+id/imageButton95"
+                        android:id="@+id/LMaccButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton92"
-                        android:layout_alignStart="@+id/imageButton92"
-                        android:layout_alignTop="@+id/imageButton94"
+                        android:layout_alignLeft="@+id/CMaccButton"
+                        android:layout_alignStart="@+id/CMaccButton"
+                        android:layout_alignTop="@+id/FlatWhiteButton"
                         android:contentDescription="@string/latte_macchiato"
                         app:srcCompat="@drawable/lattemacchiato" />
 
                     <TextView
-                        android:id="@+id/textView53"
+                        android:id="@+id/LMaccD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/textView52"
-                        android:layout_alignEnd="@+id/textView4"
-                        android:layout_alignRight="@+id/textView4"
+                        android:layout_alignBottom="@+id/FlatWhiteD"
+                        android:layout_alignEnd="@+id/DarkRoastD"
+                        android:layout_alignRight="@+id/DarkRoastD"
                         android:text="@string/latte_macchiato" />
 
                 </RelativeLayout>
@@ -341,7 +342,7 @@
             android:layout_alignLeft="@+id/checkoutButton"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/checkoutButton"
-            android:layout_marginBottom="140dp"
+            android:layout_marginBottom="190dp"
             android:layout_marginLeft="115dp"
             android:layout_marginTop="102dp"
             android:orientation="vertical"></LinearLayout>
@@ -353,7 +354,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:layout_marginBottom="140dp"
+            android:layout_marginBottom="190dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="125dp"
             android:layout_marginTop="50dp"
@@ -381,6 +382,27 @@
             android:text="@string/order_summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/TotalNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/orderPrice"
+            android:layout_alignRight="@+id/orderPrice"
+            android:layout_alignTop="@+id/TotalButton"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/TotalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/checkoutButton"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2"
+            android:text="Total:" />
 
     </RelativeLayout>
 </LinearLayout>

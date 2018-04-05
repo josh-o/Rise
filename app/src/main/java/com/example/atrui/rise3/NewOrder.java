@@ -36,8 +36,20 @@ public class NewOrder extends Fragment{
     ImageButton lightRoast;
     ImageButton darkRoast;
     ImageButton decaf;
+    ImageButton icedCoffee;
+    ImageButton caffeMisto;
+    ImageButton caffeAmericano;
+    ImageButton caffeLatte;
+    ImageButton caffeMocha;
+    ImageButton cappuccino;
+    ImageButton caramelMacchiato;
+    ImageButton espresso;
+    ImageButton flatWhite;
+    ImageButton latteMacchiato;
     Button checkOut;
+    Button total;
     String itemChoice;
+    int Sum = 0;
 
     @Nullable
     @Override
@@ -71,6 +83,107 @@ public class NewOrder extends Fragment{
                 chooseItemSizePopup();
             }
         });
+        //Iced Coffee
+        icedCoffee = (ImageButton) view.findViewById(R.id.IcedCoffeeButton);
+        icedCoffee.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Iced Coffee";
+                chooseItemSizePopup();
+            }
+        });
+        //Caffe Misto
+        caffeMisto = (ImageButton) view.findViewById(R.id.CaffeMistoButton);
+        caffeMisto.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Caffe Misto";
+                chooseItemSizePopup();
+            }
+        });
+        //Caffe Americano
+        caffeAmericano = (ImageButton) view.findViewById(R.id.CAmericanoButton);
+        caffeAmericano.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Americano";
+                chooseItemSizePopup();
+            }
+        });
+        //Caffe Latte
+        caffeLatte = (ImageButton) view.findViewById(R.id.CLatteButton);
+        caffeLatte.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Caffe Latte";
+                chooseItemSizePopup();
+            }
+        });
+        //Caffe Mocha
+        caffeMocha = (ImageButton) view.findViewById(R.id.CaffeMochaButton);
+        caffeMocha.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Caffe Mocha";
+                chooseItemSizePopup();
+            }
+        });
+        //Cappuccino
+        cappuccino = (ImageButton) view.findViewById(R.id.CappuccinoButton);
+        cappuccino.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Cappuccino";
+                chooseItemSizePopup();
+            }
+        });
+        //Caramel Macchiato
+        caramelMacchiato = (ImageButton) view.findViewById(R.id.CMaccButton);
+        caramelMacchiato.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "C Macchiato";
+                chooseItemSizePopup();
+            }
+        });
+        //Espresso
+        espresso = (ImageButton) view.findViewById(R.id.EspressoButton);
+        espresso.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Espresso";
+                chooseItemSizePopup();
+            }
+        });
+        //Flat White
+        flatWhite = (ImageButton) view.findViewById(R.id.FlatWhiteButton);
+        flatWhite.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Flat White";
+                chooseItemSizePopup();
+            }
+        });
+        //Latte Macchiato
+        latteMacchiato = (ImageButton) view.findViewById(R.id.LMaccButton);
+        latteMacchiato.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                itemChoice = "Macchiato";
+                chooseItemSizePopup();
+            }
+        });
+
+        total = (Button) view.findViewById(R.id.TotalButton);
+
+        total.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                TextView sumLine = view.findViewById(R.id.TotalNum);
+                sumLine.setText("$" + String.valueOf(Sum) + ".00");
+
+            }
+        });
 
 
         checkOut = (Button) view.findViewById(R.id.checkoutButton);
@@ -79,7 +192,6 @@ public class NewOrder extends Fragment{
             @Override
             public void onClick(View v){
                 checkOutPopup(v);
-
             }
         });
 
@@ -108,6 +220,7 @@ public class NewOrder extends Fragment{
                 TextView price1 = new TextView(getContext());
                 price1.setText("$3.00");
                 orderPriceLayout.addView(price1);
+                Sum += 3;
 
             }
         });
@@ -121,6 +234,10 @@ public class NewOrder extends Fragment{
                 line1.setText(itemChoice + " - Medium");
                 chooseItemSize.setContentView(R.layout.neworder);
                 orderLayout.addView(line1);
+                TextView price1 = new TextView(getContext());
+                price1.setText("$4.00");
+                orderPriceLayout.addView(price1);
+                Sum += 4;
             }
         });
         //Large
@@ -133,6 +250,10 @@ public class NewOrder extends Fragment{
                 line1.setText(itemChoice + " - Large");
                 chooseItemSize.setContentView(R.layout.neworder);
                 orderLayout.addView(line1);
+                TextView price1 = new TextView(getContext());
+                price1.setText("$5.00");
+                orderPriceLayout.addView(price1);
+                Sum += 5;
             }
         });
 
@@ -150,8 +271,10 @@ public class NewOrder extends Fragment{
             @Override
             public void onClick(View v){
                 paymentPopup(v);
+                enterCustomerName.dismiss();
             }
         });
+
 
         enterCustomerName.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         enterCustomerName.show();
