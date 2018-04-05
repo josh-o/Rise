@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:background="#3f51b5"
             android:padding="18dp"
-            android:text="Create New Item"
+            android:text="Update Item"
             android:textColor="#FFFFFF"
             android:textSize="16dp" />
 

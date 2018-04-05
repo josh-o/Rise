@@ -175,6 +175,9 @@ public class inventoryActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //Get values from each field in inventory popup
+                EditText updateItemNumberField = (EditText)createItemDialog.findViewById(R.id.updateItemNumber);
+                String updateItemNumber = updateItemNumberField.getText().toString();
+
                 EditText itemNumberField = (EditText)createItemDialog.findViewById(R.id.itemNumber);
                 String itemNumber = itemNumberField.getText().toString();
 
@@ -196,9 +199,10 @@ public class inventoryActivity extends AppCompatActivity {
                     Class.forName("net.sourceforge.jtds.jdbc.Driver");
                     String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
                     Connection connect = DriverManager.getConnection(url);
-                    PreparedStatement pst = connect.prepareStatement("INSERT INTO Inventory" +"(item_Number, item_Name, qty_Available, qty_onOrder, item_Details) VALUES" +
-                            "(?,?,?,?,?)");
+                    PreparedStatement pst = connect.prepareStatement("UPDATE Inventory SET item_Number=?, item_Name=?, qty_Available=?, qty_onOrder=?, item_Details=? WHERE item_Number='"+updateItemNumber+"'");
 
+                    //itemNumberField.setText("ayy");
+                    pst.setString(1, itemNumber);
                     if(!itemNumber.isEmpty() && !itemName.isEmpty() && !qtyAvailable.isEmpty() && !qtyonOrder.isEmpty()){
                         if(itemNumber.length()<=10){
                             pst.setString(1, itemNumber);
