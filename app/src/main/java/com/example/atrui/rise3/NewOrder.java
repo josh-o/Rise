@@ -90,6 +90,7 @@ public class NewOrder extends Fragment{
     public void chooseItemSizePopup(){
         final Dialog chooseItemSize = new Dialog(getActivity());
         final LinearLayout orderLayout = (LinearLayout) getActivity().findViewById(R.id.orderSummaryLayout);
+        final LinearLayout orderPriceLayout = (LinearLayout) getActivity().findViewById(R.id.orderPrice);
         chooseItemSize.setContentView(R.layout.popup_layout);
 
         //Choose Size
@@ -104,6 +105,10 @@ public class NewOrder extends Fragment{
                 line1.setText(itemChoice + " - Small");
                 chooseItemSize.setContentView(R.layout.neworder);
                 orderLayout.addView(line1);
+                TextView price1 = new TextView(getContext());
+                price1.setText("$3.00");
+                orderPriceLayout.addView(price1);
+
             }
         });
         //Medium
