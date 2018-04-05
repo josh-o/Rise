@@ -1,7 +1,9 @@
 package com.example.atrui.rise3;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -22,11 +25,13 @@ import java.util.Calendar;
 public class scheduleActivity extends AppCompatActivity {
 
     TextView empOne,empOneShift, empTwo, empTwoShift, empThree, empThreeShift,empFour, empFourShift, notesBox;
-    
+    Dialog createItemDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+
 
         //cheat and main thread network
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -45,6 +50,21 @@ public class scheduleActivity extends AppCompatActivity {
 
         Button viewScheduleButton = (Button) findViewById(R.id.viewSchedule);
         Button editScheduleButton = (Button) findViewById(R.id.editSchedule);
+
+        editScheduleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                //createItemDialog.setContentView(R.layout.schedule_popup);
+                empOne.setText("No Shifts Scheduled");
+                empOneShift.setText("");
+                empTwo.setText("");
+                empTwoShift.setText("");
+                empThree.setText("");
+                empThreeShift.setText("");
+                empFour.setText("");
+                empFourShift.setText("");
+                notesBox.setText("");
+            }
+        });
 
         viewScheduleButton.setOnClickListener(new View.OnClickListener(){
 
@@ -100,4 +120,5 @@ public class scheduleActivity extends AppCompatActivity {
 
         });
     }
+
 }
