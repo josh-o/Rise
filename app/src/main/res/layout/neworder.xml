@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" android:baselineAligned="false">
@@ -110,7 +111,7 @@
                         android:text="@string/decaf" />
 
                     <ImageButton
-                        android:id="@+id/imageButton5"
+                        android:id="@+id/IcedCoffeeButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/LightRoastButton2"
@@ -126,16 +127,16 @@
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/textView3"
                         android:layout_alignStart="@+id/textView3"
-                        android:layout_below="@+id/imageButton5"
+                        android:layout_below="@+id/IcedCoffeeButton"
                         android:text="@string/iced_coffee" />
 
                     <ImageButton
-                        android:id="@+id/imageButton6"
+                        android:id="@+id/CaffeMistoButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/DarkRoastButton"
                         android:layout_alignStart="@+id/DarkRoastButton"
-                        android:layout_alignTop="@+id/imageButton5"
+                        android:layout_alignTop="@+id/IcedCoffeeButton"
                         android:contentDescription="@string/caffemisto"
                         app:srcCompat="@drawable/caffemisto" />
 
@@ -145,15 +146,15 @@
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/textView4"
                         android:layout_alignStart="@+id/textView4"
-                        android:layout_below="@+id/imageButton6"
+                        android:layout_below="@+id/CaffeMistoButton"
                         android:text="@string/caffe_misto" />
 
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton5"
-                        android:layout_alignStart="@+id/imageButton5"
+                        android:layout_alignLeft="@+id/IcedCoffeeButton"
+                        android:layout_alignStart="@+id/IcedCoffeeButton"
                         android:layout_below="@+id/textView6"
                         android:layout_marginTop="37dp"
                         android:text="@string/espresso_drinks"
@@ -175,8 +176,8 @@
                         android:id="@+id/imageButton8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/imageButton6"
-                        android:layout_alignStart="@+id/imageButton6"
+                        android:layout_alignLeft="@+id/CaffeMistoButton"
+                        android:layout_alignStart="@+id/CaffeMistoButton"
                         android:layout_alignTop="@+id/imageButton7"
                         android:contentDescription="@string/caffeelatte"
                         app:srcCompat="@drawable/caffelatte" />
@@ -334,21 +335,30 @@
 
 
         <LinearLayout
+            android:id="@+id/orderPrice"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/checkoutButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/checkoutButton"
+            android:layout_marginBottom="140dp"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="102dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <LinearLayout
             android:id="@+id/orderSummaryLayout"
             android:layout_width="match_parent"
             android:layout_height="683dp"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="55dp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginBottom="140dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="125dp"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/orderLine1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="35dp" />
         </LinearLayout>
 
         <Button
