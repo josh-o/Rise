@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="500dp"
     android:layout_height="300dp"
-    android:background="#FFFFFF">
+    android:background="#FFF5EE">
 
     <RadioButton
         android:id="@+id/cash"
