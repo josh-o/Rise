@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="399dp"
-        android:layout_height="476dp"
+        android:layout_height="700dp"
         android:layout_marginBottom="124dp"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/qtyonOrder5"
+            android:id="@+id/employee1Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/itemNumber"
+            android:id="@+id/shift1Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/qtyAvailable"
+            android:id="@+id/employee2Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -71,7 +71,45 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/qtyonOrder6"
+            android:id="@+id/shift2Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/employee3Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/shift3Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/employee4Field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/shift4Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

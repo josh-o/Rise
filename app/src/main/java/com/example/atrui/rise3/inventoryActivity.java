@@ -201,8 +201,6 @@ public class inventoryActivity extends AppCompatActivity {
                     Connection connect = DriverManager.getConnection(url);
                     PreparedStatement pst = connect.prepareStatement("UPDATE Inventory SET item_Number=?, item_Name=?, qty_Available=?, qty_onOrder=?, item_Details=? WHERE item_Number='"+updateItemNumber+"'");
 
-                    //itemNumberField.setText("ayy");
-                    pst.setString(1, itemNumber);
                     if(!itemNumber.isEmpty() && !itemName.isEmpty() && !qtyAvailable.isEmpty() && !qtyonOrder.isEmpty()){
                         if(itemNumber.length()<=10){
                             pst.setString(1, itemNumber);
