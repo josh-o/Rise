@@ -45,4 +45,8 @@
         <item>qtyAvailable</item>
         <item>qtyonOrder</item>
     </string-array>
+    <string-array name="loginDropdown">
+        <item>Employee</item>
+        <item>Manager</item>
+    </string-array>
 </resources>

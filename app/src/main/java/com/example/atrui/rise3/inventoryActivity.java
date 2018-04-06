@@ -120,25 +120,15 @@ public class inventoryActivity extends AppCompatActivity {
         selectItem.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
                 //Get values from each field in inventory popup
                 EditText updateItemNumberField = (EditText)createItemDialog.findViewById(R.id.updateItemNumber);
                 String updateItemNumber = updateItemNumberField.getText().toString();
-
                 EditText itemNumberField = (EditText)createItemDialog.findViewById(R.id.itemNumber);
-                //String itemNumber = itemNumberField.getText().toString();
-
                 EditText itemNameField = (EditText)createItemDialog.findViewById(R.id.itemName);
-                //String itemName = itemNameField.getText().toString();
-
                 EditText qtyAvailableField = (EditText)createItemDialog.findViewById(R.id.qtyAvailable);
-                //String qtyAvailable = qtyAvailableField.getText().toString();
-
                 EditText qtyonOrderField = (EditText)createItemDialog.findViewById(R.id.qtyonOrder);
-                //String qtyonOrder = qtyonOrderField.getText().toString();
-
                 EditText itemDetailsField = (EditText)createItemDialog.findViewById(R.id.itemDetails);
-                //String itemDetails = itemDetailsField.getText().toString();
-
 
                 try {
                     //SQL connection
@@ -277,13 +267,9 @@ public class inventoryActivity extends AppCompatActivity {
         try {
             //SQL connection
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            //String employeeID = ((EditText) findViewById(R.id.employeeIDField)).getText().toString();
-            //String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
             String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
             Connection connect = DriverManager.getConnection(url);
             PreparedStatement pst = connect.prepareStatement("Select * from Inventory");
-            //pst.setString(1, employeeID);
-            //pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
@@ -297,24 +283,6 @@ public class inventoryActivity extends AppCompatActivity {
 
             updateTable(col1, col2, col3, col4, col5);
 
-            //////////////////////////////////////
-
-            /**Get column names from database
-             ((TextView)findViewById(R.id.textView11)).setText(rsmd.getColumnName(1));
-             ((TextView)findViewById(R.id.textView12)).setText(rsmd.getColumnName(2));
-             ((TextView)findViewById(R.id.textView13)).setText(rsmd.getColumnName(3));
-             ((TextView)findViewById(R.id.textView14)).setText(rsmd.getColumnName(4));
-             ((TextView)findViewById(R.id.textView15)).setText(rsmd.getColumnName(5));
-             **/
-            //
-            //TextView team1,team2,scr1,scr2;
-            //TableLayout t2 = new TableLayout(this);
-            //TableRow tr;
-            //
-            //team1 = (TextView)findViewById(R.id.tVTeam1);
-            //team2 = (TextView)findViewById(R.id.tVTeam2);
-            //TableLayout t1 = (TableLayout) findViewById(R.id.t1);
-            //TableLayout tableLayout = new TableLayout(this);
             int count = 0;
 
             while (rs.next()) {
@@ -360,15 +328,11 @@ public class inventoryActivity extends AppCompatActivity {
 
                 if ((count) % 2 != 0) {
                     c1.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                    //c1.setTextColor(Color.WHITE);
                     c2.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                    //c2.setTextColor(Color.WHITE);
                     c3.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                    //c3.setTextColor(Color.WHITE);
                     c4.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                    //c4.setTextColor(Color.WHITE);
                     c5.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                    //c5.setTextColor(Color.WHITE);
+
                 }
                 if ((count) % 2 == 0) {
                     c1.setBackgroundColor(Color.WHITE);
@@ -386,6 +350,53 @@ public class inventoryActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public void deleteItemPopup(View v){
+        createItemDialog.setContentView(R.layout.inventory_deletepopup);
+        ImageButton closeDialog = (ImageButton)createItemDialog.findViewById(R.id.closeDialog);
+        closeDialog.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                createItemDialog.dismiss();
+            }
+        });
+        //Delete item logic
+        Button delete = (Button)createItemDialog.findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+
+                //Get values from each field in inventory popup
+                EditText itemNumberField = (EditText)createItemDialog.findViewById(R.id.itemNumber);
+                String itemNumber = itemNumberField.getText().toString();
+
+                EditText itemNameField = (EditText)createItemDialog.findViewById(R.id.itemName);
+                String itemName = itemNameField.getText().toString();
+
+                try {
+                    //SQL connection
+                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                    String url = "jdbc:jtds:sqlserver://riseinc.database.windows.net:1433;databaseName=rise;user=jtoverby@riseinc;password=Awesome33!;";
+                    Connection connect = DriverManager.getConnection(url);
+                    PreparedStatement pst = connect.prepareStatement("DELETE from Inventory where item_Name='"+itemName+"' or item_Number='"+itemNumber+"'");
+
+                    pst.executeUpdate();
+
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                createItemDialog.dismiss();
+                displayTable();
+            }
+        });
+        createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        createItemDialog.show();
+
     }
 
     @Override
@@ -413,10 +424,6 @@ public class inventoryActivity extends AppCompatActivity {
                 if (childCount > 1) {
                     t1.removeViews(1, childCount - 1);
                 }
-
-
-
-                //t1.removeAllViews();
 
                 String itemNum = null;
                 String itemNam = null;
@@ -497,15 +504,10 @@ public class inventoryActivity extends AppCompatActivity {
 
                         if((count)%2!=0){
                             c1.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                            //c1.setTextColor(Color.WHITE);
                             c2.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                            //c2.setTextColor(Color.WHITE);
                             c3.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                            //c3.setTextColor(Color.WHITE);
                             c4.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                            //c4.setTextColor(Color.WHITE);
                             c5.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                            //c5.setTextColor(Color.WHITE);
                         }
                         if((count)%2==0){
                             c1.setBackgroundColor(Color.WHITE);
@@ -526,11 +528,6 @@ public class inventoryActivity extends AppCompatActivity {
             }
         });
 
-
-/**
-
-
-**/
     }
 }
 
