@@ -74,31 +74,31 @@ public class scheduleActivity extends AppCompatActivity {
         createItemDialog.setContentView(R.layout.schedule_popup);
         //Get values from each field in schedule popup
         EditText employee1Field = (EditText) createItemDialog.findViewById(R.id.employee1Field);
-        //String employee1 = employee1Field.getText().toString();
+        String employee1 = employee1Field.getText().toString();
 
         EditText shift1Field = (EditText) createItemDialog.findViewById(R.id.shift1Field);
-        //String shift1 = shift1Field.getText().toString();
+        String shift1 = shift1Field.getText().toString();
 
         EditText employee2Field = (EditText) createItemDialog.findViewById(R.id.employee2Field);
-        //String employee2 = employee2Field.getText().toString();
+        String employee2 = employee2Field.getText().toString();
 
         EditText shift2Field = (EditText) createItemDialog.findViewById(R.id.shift2Field);
-        // String shift2 = shift2Field.getText().toString();
+        String shift2 = shift2Field.getText().toString();
 
         EditText employee3Field = (EditText) createItemDialog.findViewById(R.id.employee3Field);
-        //String employee3 = employee3Field.getText().toString();
+        String employee3 = employee3Field.getText().toString();
 
         EditText shift3Field = (EditText) createItemDialog.findViewById(R.id.shift3Field);
-        // String shift3 = shift3Field.getText().toString();
+        String shift3 = shift3Field.getText().toString();
 
         EditText employee4Field = (EditText) createItemDialog.findViewById(R.id.employee4Field);
-        //String employee4 = employee4Field.getText().toString();
+        String employee4 = employee4Field.getText().toString();
 
         EditText shift4Field = (EditText) createItemDialog.findViewById(R.id.shift4Field);
-        // String shift4 = shift4Field.getText().toString();
+        String shift4 = shift4Field.getText().toString();
 
-        EditText notes = (EditText) createItemDialog.findViewById(R.id.itemDetails);
-        // String shift4 = shift4Field.getText().toString();
+        EditText notesField = (EditText) createItemDialog.findViewById(R.id.itemDetails);
+        String notes = notesField.getText().toString();
 
 
         try {
@@ -127,7 +127,7 @@ public class scheduleActivity extends AppCompatActivity {
                 shift3Field.setText(rs.getString(7));
                 employee4Field.setText(rs.getString(8));
                 shift4Field.setText(rs.getString(9));
-                notes.setText(rs.getString(10));
+                notesField.setText(rs.getString(10));
             }
 
 
@@ -136,7 +136,12 @@ public class scheduleActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        if (employee1.isEmpty() && shift1.isEmpty() && employee2.isEmpty() && shift2.isEmpty() &&
+                employee3.isEmpty() && shift3.isEmpty() && employee4.isEmpty() && shift4.isEmpty() && notes.isEmpty()) {
+            insertSchedule();
+        } else {
+            updateSchedule();
+        }
         //createItemDialog.dismiss();
         /**
          //createItemDialog.setContentView(R.layout.schedule_popup);
@@ -150,81 +155,7 @@ public class scheduleActivity extends AppCompatActivity {
          empFourShift.setText("");
          notesBox.setText("");
          **/
-        Button updateSchedule = (Button) createItemDialog.findViewById(R.id.update);
-        updateSchedule.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                //Get values from each field in schedule popup
-                EditText employee1Field = (EditText) createItemDialog.findViewById(R.id.employee1Field);
-                String employee1 = employee1Field.getText().toString();
-
-                EditText shift1Field = (EditText) createItemDialog.findViewById(R.id.shift1Field);
-                String shift1 = shift1Field.getText().toString();
-
-                EditText employee2Field = (EditText) createItemDialog.findViewById(R.id.employee2Field);
-                String employee2 = employee2Field.getText().toString();
-
-                EditText shift2Field = (EditText) createItemDialog.findViewById(R.id.shift2Field);
-                String shift2 = shift2Field.getText().toString();
-
-                EditText employee3Field = (EditText) createItemDialog.findViewById(R.id.employee3Field);
-                String employee3 = employee3Field.getText().toString();
-
-                EditText shift3Field = (EditText) createItemDialog.findViewById(R.id.shift3Field);
-                String shift3 = shift3Field.getText().toString();
-
-                EditText employee4Field = (EditText) createItemDialog.findViewById(R.id.employee4Field);
-                String employee4 = employee4Field.getText().toString();
-
-                EditText shift4Field = (EditText) createItemDialog.findViewById(R.id.shift4Field);
-                String shift4 = shift4Field.getText().toString();
-
-                EditText notesField = (EditText) createItemDialog.findViewById(R.id.itemDetails);
-                String notes = notesField.getText().toString();
-
-                try {
-
-                    DatePicker calendar = (DatePicker) findViewById(R.id.calendar);
-                    int day = calendar.getDayOfMonth();
-                    int month = calendar.getMonth() + 1;
-                    int year = calendar.getYear();
-                    String dayS = Integer.toString(day);
-                    String monthS = Integer.toString(month);
-                    String yearS = Integer.toString(year);
-                    String date = monthS + "/" + dayS + "/" + yearS;
-                    //SQL connection
-                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
-                    String url = "jdbc:jtds:sqlserver://riseinc3.database.windows.net:1433;databaseName=Schedule;user=jtoverby@riseinc3;password=Awesome33!;";
-                    Connection connect = DriverManager.getConnection(url);
-                    PreparedStatement pst = connect.prepareStatement("UPDATE Schedule SET date=?, employee1=?, shift1=?, employee2=?, shift2=?, employee3=?, shift3=?, employee4=?, shift4=?, notes=? WHERE date='"+date+"'");
-
-
-                    pst.setString(1, date);
-                    pst.setString(2, employee1);
-                    pst.setString(3, shift1);
-                    pst.setString(4, employee2);
-                    pst.setString(5, shift2);
-                    pst.setString(6, employee3);
-                    pst.setString(7, shift3);
-                    pst.setString(8, employee4);
-                    pst.setString(9, shift4);
-                    pst.setString(10, notes);
-
-
-                    pst.executeUpdate();
-
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                createItemDialog.dismiss();
-                displaySchedule();
-            }
-        });
-        createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        createItemDialog.show();
 
 
     }
@@ -266,5 +197,164 @@ public class scheduleActivity extends AppCompatActivity {
         }
 
     }
+    public void insertSchedule() {
+
+        Button updateSchedule = (Button) createItemDialog.findViewById(R.id.update);
+        updateSchedule.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+        DatePicker calendar = (DatePicker) findViewById(R.id.calendar);
+
+        int day = calendar.getDayOfMonth();
+        int month = calendar.getMonth()+1;
+        int year = calendar.getYear();
+        String dayS = Integer.toString(day);
+        String monthS = Integer.toString(month);
+        String yearS = Integer.toString(year);
+        String date = monthS+"/"+dayS+"/"+yearS;
+
+        EditText employee1Field = (EditText) createItemDialog.findViewById(R.id.employee1Field);
+        String employee1 = employee1Field.getText().toString();
+
+        EditText shift1Field = (EditText) createItemDialog.findViewById(R.id.shift1Field);
+        String shift1 = shift1Field.getText().toString();
+
+        EditText employee2Field = (EditText) createItemDialog.findViewById(R.id.employee2Field);
+        String employee2 = employee2Field.getText().toString();
+
+        EditText shift2Field = (EditText) createItemDialog.findViewById(R.id.shift2Field);
+        String shift2 = shift2Field.getText().toString();
+
+        EditText employee3Field = (EditText) createItemDialog.findViewById(R.id.employee3Field);
+        String employee3 = employee3Field.getText().toString();
+
+        EditText shift3Field = (EditText) createItemDialog.findViewById(R.id.shift3Field);
+        String shift3 = shift3Field.getText().toString();
+
+        EditText employee4Field = (EditText) createItemDialog.findViewById(R.id.employee4Field);
+        String employee4 = employee4Field.getText().toString();
+
+        EditText shift4Field = (EditText) createItemDialog.findViewById(R.id.shift4Field);
+        String shift4 = shift4Field.getText().toString();
+
+        EditText notesField = (EditText) createItemDialog.findViewById(R.id.itemDetails);
+        String notes = notesField.getText().toString();
+
+        try {
+            //SQL connection
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            String url = "jdbc:jtds:sqlserver://riseinc3.database.windows.net:1433;databaseName=Schedule;user=jtoverby@riseinc3;password=Awesome33!;";
+            Connection connect = DriverManager.getConnection(url);
+            PreparedStatement pst = connect.prepareStatement("INSERT INTO Schedule" +"(date, employee1, shift1, employee2, shift2, employee3, shift3, employee4, shift4, notes) VALUES" +
+                    "(?,?,?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, date);
+            pst.setString(2, employee1);
+            pst.setString(3, shift1);
+            pst.setString(4, employee2);
+            pst.setString(5, shift2);
+            pst.setString(6, employee3);
+            pst.setString(7, shift3);
+            pst.setString(8, employee4);
+            pst.setString(9, shift4);
+            pst.setString(10, notes);
+
+            pst.executeUpdate();
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+                createItemDialog.dismiss();
+                displaySchedule();
+        }
+
+        });
+        createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        createItemDialog.show();
+    }
+
+    public void updateSchedule(){
+            Button updateSchedule = (Button) createItemDialog.findViewById(R.id.update);
+            updateSchedule.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    //Get values from each field in schedule popup
+                    EditText employee1Field = (EditText) createItemDialog.findViewById(R.id.employee1Field);
+                    String employee1 = employee1Field.getText().toString();
+
+                    EditText shift1Field = (EditText) createItemDialog.findViewById(R.id.shift1Field);
+                    String shift1 = shift1Field.getText().toString();
+
+                    EditText employee2Field = (EditText) createItemDialog.findViewById(R.id.employee2Field);
+                    String employee2 = employee2Field.getText().toString();
+
+                    EditText shift2Field = (EditText) createItemDialog.findViewById(R.id.shift2Field);
+                    String shift2 = shift2Field.getText().toString();
+
+                    EditText employee3Field = (EditText) createItemDialog.findViewById(R.id.employee3Field);
+                    String employee3 = employee3Field.getText().toString();
+
+                    EditText shift3Field = (EditText) createItemDialog.findViewById(R.id.shift3Field);
+                    String shift3 = shift3Field.getText().toString();
+
+                    EditText employee4Field = (EditText) createItemDialog.findViewById(R.id.employee4Field);
+                    String employee4 = employee4Field.getText().toString();
+
+                    EditText shift4Field = (EditText) createItemDialog.findViewById(R.id.shift4Field);
+                    String shift4 = shift4Field.getText().toString();
+
+                    EditText notesField = (EditText) createItemDialog.findViewById(R.id.itemDetails);
+                    String notes = notesField.getText().toString();
+
+                    try {
+
+                        DatePicker calendar = (DatePicker) findViewById(R.id.calendar);
+                        int day = calendar.getDayOfMonth();
+                        int month = calendar.getMonth() + 1;
+                        int year = calendar.getYear();
+                        String dayS = Integer.toString(day);
+                        String monthS = Integer.toString(month);
+                        String yearS = Integer.toString(year);
+                        String date = monthS + "/" + dayS + "/" + yearS;
+                        //SQL connection
+                        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                        String url = "jdbc:jtds:sqlserver://riseinc3.database.windows.net:1433;databaseName=Schedule;user=jtoverby@riseinc3;password=Awesome33!;";
+                        Connection connect = DriverManager.getConnection(url);
+                        PreparedStatement pst = connect.prepareStatement("UPDATE Schedule SET date=?, employee1=?, shift1=?, employee2=?, shift2=?, employee3=?, shift3=?, employee4=?, shift4=?, notes=? WHERE date='" + date + "'");
+
+
+                        pst.setString(1, date);
+                        pst.setString(2, employee1);
+                        pst.setString(3, shift1);
+                        pst.setString(4, employee2);
+                        pst.setString(5, shift2);
+                        pst.setString(6, employee3);
+                        pst.setString(7, shift3);
+                        pst.setString(8, employee4);
+                        pst.setString(9, shift4);
+                        pst.setString(10, notes);
+
+
+                        pst.executeUpdate();
+
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    createItemDialog.dismiss();
+                    displaySchedule();
+                }
+
+            });
+            createItemDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            createItemDialog.show();
+        }
 
 }
