@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="399dp"
-        android:layout_height="700dp"
+        android:layout_height="570dp"
         android:layout_marginBottom="124dp"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762">
+        app:layout_constraintVertical_bias="0.704">
 
         <TextView
             android:id="@+id/textView3"
@@ -29,104 +29,100 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
-        <Spinner
-            android:id="@+id/spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <EditText
             android:id="@+id/employee1Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/emp"
             android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/spinner4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/shift1Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/shift"
             android:inputType="textPersonName" />
 
-        <Spinner
-            android:id="@+id/spinner5"
+        <View
+            android:id="@+id/divider7"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="14dp"
+            android:background="?android:attr/listDivider" />
 
         <EditText
             android:id="@+id/employee2Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/emp"
             android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/spinner6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/shift2Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/shift"
             android:inputType="textPersonName" />
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:background="?android:attr/listDivider" />
 
         <EditText
             android:id="@+id/employee3Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/emp"
             android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/shift3Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/shift"
             android:inputType="textPersonName" />
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:background="?android:attr/listDivider" />
 
         <EditText
             android:id="@+id/employee4Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/emp"
             android:inputType="textPersonName" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/shift4Field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/shift"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView8"
+        <View
+            android:id="@+id/divider9"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/notes" />
+            android:layout_height="14dp"
+            android:background="?android:attr/listDivider" />
 
         <EditText
             android:id="@+id/itemDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/notes"
             android:inputType="text" />
 
         <Button
