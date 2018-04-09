@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.PopupWindow;
@@ -51,11 +52,16 @@ public class NewOrder extends Fragment{
     ImageButton espresso;
     ImageButton flatWhite;
     ImageButton latteMacchiato;
+    Button select;
+    RadioButton rbCash;
+    RadioButton rbCard;
     Button checkOut;
     Button total;
     String itemChoice;
     String itemsOrdered = "";
     int Sum = 0;
+    int difference;
+    int cashAmount;
 
     @Nullable
     @Override
@@ -200,7 +206,6 @@ public class NewOrder extends Fragment{
                 checkOutPopup(v);
             }
         });
-
         return view;
     }
 
@@ -357,10 +362,52 @@ public class NewOrder extends Fragment{
         final Dialog enterPayment = new Dialog(getActivity());
         enterPayment.setContentView(R.layout.payment_layout);
 
+        //radiobutton for cash
+        rbCash = (RadioButton) enterPayment.findViewById(R.id.cash);
+        //radiobutton for card
+        rbCard = (RadioButton) enterPayment.findViewById(R.id.card);
 
+        //press select
+        select = (Button) enterPayment.findViewById(R.id.selectButton);
+        select.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(rbCash.isChecked()){
+                    cashPaymentPopup(v);
+                }
+                else if(rbCard.isChecked()){
+                    enterPayment.dismiss();
+                }
+                enterPayment.dismiss();
+            }
+        });
 
         enterPayment.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         enterPayment.show();
+
+    }
+
+    public void cashPaymentPopup(View v){
+        final Dialog enterCash = new Dialog(getActivity());
+        enterCash.setContentView(R.layout.cash_layout);
+
+        //set total line
+        TextView totalLine = enterCash.findViewById(R.id.totalBox);
+    //    totalLine.setText(Sum);
+
+    /*
+        //get cash amount received
+        EditText cashLineBox = (EditText) enterCash.findViewById(R.id.cashBox);
+        String cash2 = cashLineBox.getText();
+        cashAmount = Integer.parseInt(cash2);
+        difference = (Sum - cashAmount);
+
+        //calculate difference
+        TextView changeLine = enterCash.findViewById(R.id.changeBox);
+        changeLine.setText(difference);
+    */
+        enterCash.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        enterCash.show();
     }
 
 }
