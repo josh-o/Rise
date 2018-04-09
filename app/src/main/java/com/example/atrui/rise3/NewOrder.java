@@ -25,6 +25,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 
 
 /**
@@ -49,6 +54,7 @@ public class NewOrder extends Fragment{
     Button checkOut;
     Button total;
     String itemChoice;
+    String itemsOrdered = "";
     int Sum = 0;
 
     @Nullable
@@ -221,6 +227,9 @@ public class NewOrder extends Fragment{
                 price1.setText("$3.00");
                 orderPriceLayout.addView(price1);
                 Sum += 3;
+                TextView sumLine = getActivity().findViewById(R.id.TotalNum);
+                sumLine.setText("$" + String.valueOf(Sum) + ".00");
+                itemsOrdered = itemsOrdered + " " + itemChoice + " - Small / ";
 
             }
         });
@@ -238,6 +247,9 @@ public class NewOrder extends Fragment{
                 price1.setText("$4.00");
                 orderPriceLayout.addView(price1);
                 Sum += 4;
+                TextView sumLine = getActivity().findViewById(R.id.TotalNum);
+                sumLine.setText("$" + String.valueOf(Sum) + ".00");
+                itemsOrdered = itemsOrdered + " " + itemChoice + " - Medium / ";
             }
         });
         //Large
@@ -254,6 +266,9 @@ public class NewOrder extends Fragment{
                 price1.setText("$5.00");
                 orderPriceLayout.addView(price1);
                 Sum += 5;
+                TextView sumLine = getActivity().findViewById(R.id.TotalNum);
+                sumLine.setText("$" + String.valueOf(Sum) + ".00");
+                itemsOrdered = itemsOrdered + " " + itemChoice + " - Large / ";
             }
         });
 
@@ -270,6 +285,62 @@ public class NewOrder extends Fragment{
         payment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //Get Current Date
+                Date currentDate = Calendar.getInstance().getTime();
+                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                String date = dateFormat.format(currentDate);
+                //Generate order number
+                Random r = new Random();
+                int orderNumberInt = r.nextInt(1000000 - 100) + 100;
+                String orderNumber = Integer.toString(orderNumberInt);
+                //Get customer name
+                EditText enterNameField = (EditText)enterCustomerName.findViewById(R.id.enterName);
+                String enterName = enterNameField.getText().toString();
+                //Get order price
+                Double orderPrice = (double)Sum;
+                //Get order items = itemsOrdered string
+
+                try {
+                    //SQL connection
+                    Class.forName("net.sourceforge.jtds.jdbc.Driver");
+                    String url = "jdbc:jtds:sqlserver://riseinc2.database.windows.net:1433;databaseName=Order;user=jtoverby@riseinc2;password=Awesome33!;";
+                    Connection connect = DriverManager.getConnection(url);
+                    PreparedStatement pst = connect.prepareStatement("INSERT INTO Orders" +"(order_number, customer_name, items_Ordered, order_Price, order_Date) VALUES" +
+                            "(?,?,?,?,?)");
+
+                    if(!enterName.isEmpty() && orderPrice!=null){
+
+                            pst.setString(1, orderNumber);
+
+                        if(enterName.length()<=30) {
+                            pst.setString(2, enterName);
+                        }
+                        if(itemsOrdered.length()<=200) {
+                            pst.setString(3, itemsOrdered);
+                        }
+
+                        pst.setDouble(4,orderPrice);
+                        pst.setString(5, date);
+
+                    }
+                    pst.executeUpdate();
+
+
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                //Clear Total
+                TextView sumLine = getActivity().findViewById(R.id.TotalNum);
+                Sum = 0;
+                sumLine.setText("");
+                //Remove all ordered items and prices
+                final LinearLayout orderLayout = (LinearLayout) getActivity().findViewById(R.id.orderSummaryLayout);
+                final LinearLayout orderPriceLayout = (LinearLayout) getActivity().findViewById(R.id.orderPrice);
+                orderLayout.removeAllViews();
+                orderPriceLayout.removeAllViews();
+
                 paymentPopup(v);
                 enterCustomerName.dismiss();
             }
