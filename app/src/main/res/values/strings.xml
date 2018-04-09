@@ -39,6 +39,7 @@
     <string name="change">Change:</string>
     <string name="cash">Cash:</string>
     <string name="total">Total:</string>
+    //deletethis
 
 
     <string-array name="inventoryDropdown">
