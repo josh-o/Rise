@@ -340,6 +340,8 @@ public class NewOrder extends Fragment{
                 final LinearLayout orderPriceLayout = (LinearLayout) getActivity().findViewById(R.id.orderPrice);
                 orderLayout.removeAllViews();
                 orderPriceLayout.removeAllViews();
+                //Clear itemsordered string
+                itemsOrdered = "";
 
                 paymentPopup(v);
                 enterCustomerName.dismiss();
