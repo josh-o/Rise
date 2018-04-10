@@ -57,11 +57,13 @@ public class NewOrder extends Fragment{
     RadioButton rbCard;
     Button checkOut;
     Button total;
+    Button calcChange;
+    Button completeTransaction;
     String itemChoice;
     String itemsOrdered = "";
     int Sum = 0;
-    int difference;
-    int cashAmount;
+    Double difference;
+    Double cashAmount;
 
     @Nullable
     @Override
@@ -338,7 +340,7 @@ public class NewOrder extends Fragment{
                 }
                 //Clear Total
                 TextView sumLine = getActivity().findViewById(R.id.TotalNum);
-                Sum = 0;
+                //Sum = 0;
                 sumLine.setText("");
                 //Remove all ordered items and prices
                 final LinearLayout orderLayout = (LinearLayout) getActivity().findViewById(R.id.orderSummaryLayout);
@@ -393,19 +395,53 @@ public class NewOrder extends Fragment{
 
         //set total line
         TextView totalLine = enterCash.findViewById(R.id.totalBox);
-    //    totalLine.setText(Sum);
+        String sumString = "$" + Double.toString(Sum) + "0";
+        totalLine.setText(sumString);
 
-    /*
-        //get cash amount received
-        EditText cashLineBox = (EditText) enterCash.findViewById(R.id.cashBox);
-        String cash2 = cashLineBox.getText();
-        cashAmount = Integer.parseInt(cash2);
-        difference = (Sum - cashAmount);
+        calcChange = (Button) enterCash.findViewById(R.id.calcChange);
+        calcChange.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //get cash amount received
+                 EditText cashLineBox = (EditText) enterCash.findViewById(R.id.cashBox);
+                 String cash2 = cashLineBox.getText().toString();
+                 cashAmount = Double.parseDouble(cash2);
+                 Double sum = (double)Sum;
+                 difference = (cashAmount - sum);
 
-        //calculate difference
-        TextView changeLine = enterCash.findViewById(R.id.changeBox);
-        changeLine.setText(difference);
-    */
+                    //calculate difference
+                    TextView changeLine = enterCash.findViewById(R.id.changeBox);
+                    String differenceRounded = String.format("%.2f",difference);
+                    changeLine.setText("$" + differenceRounded);
+            }
+        });calcChange = (Button) enterCash.findViewById(R.id.calcChange);
+        calcChange.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //get cash amount received
+                 EditText cashLineBox = (EditText) enterCash.findViewById(R.id.cashBox);
+                 String cash2 = cashLineBox.getText().toString();
+                 cashAmount = Double.parseDouble(cash2);
+                 Double sum = (double)Sum;
+                 difference = (cashAmount - sum);
+
+                    //calculate difference
+                    TextView changeLine = enterCash.findViewById(R.id.changeBox);
+                    String differenceRounded = String.format("%.2f",difference);
+                    changeLine.setText("$" + differenceRounded);
+            }
+        });
+        completeTransaction = (Button) enterCash.findViewById(R.id.completeTransaction);
+        completeTransaction.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //Reset sum
+               Sum = 0;
+               enterCash.dismiss();
+            }
+        });
+
+
         enterCash.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         enterCash.show();
     }
