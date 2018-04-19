@@ -17,7 +17,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+<!--
     <EditText
         android:id="@+id/tin1"
         android:layout_width="100dp"
@@ -28,7 +28,7 @@
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+-->
     <EditText
         android:id="@+id/tin2"
         android:layout_width="100dp"
@@ -38,17 +38,19 @@
         android:ems="10"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tin1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+    <!--app:layout_constraintTop_toBottomOf="@+id/tin1" -->
 
-    <EditText
-        android:id="@+id/tin3"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="84dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tin2" />
+
+<EditText
+    android:id="@+id/tin3"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="84dp"
+    android:ems="10"
+    android:inputType="text"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tin2" />
 
     <TableLayout
         android:id="@+id/table1"
@@ -57,63 +59,57 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
 
         <TableRow
             android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="18dp"
-                android:text="TextView" />
 
             <TextView
                 android:id="@+id/tv21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="18dp"
-                android:text="TextView" />
+                android:padding="18dp" />
 
             <TextView
                 android:id="@+id/tv31"
                 android:layout_width="136dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:padding="18dp"
-                android:text="TextView" />
+                android:padding="18dp" />
 
             <TextView
                 android:id="@+id/tv41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="18dp"
-                android:text="TextView" />
+                android:padding="18dp" />
 
         </TableRow>
 
     </TableLayout>
 
-    <Button
-        android:id="@+id/revbutt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="584dp"
+<Button
+    android:id="@+id/revbutt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="584dp"
 
-        android:layout_marginTop="8dp"
-        android:text="get\nresults"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tin3" />
-
+    android:layout_marginTop="8dp"
+    android:text="get\nresults"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tin3" />
+    <!--
     <TextView
         android:id="@+id/plaintext1"
         android:layout_width="wrap_content"
@@ -123,16 +119,16 @@
         android:text="employee \n(0 for all employees)"
         app:layout_constraintStart_toEndOf="@+id/tin1"
         app:layout_constraintTop_toTopOf="parent" />
-
+    -->
     <TextView
         android:id="@+id/plaintext3"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="8dp"
         android:text="start date\n yyyy/MM/dd"
         app:layout_constraintStart_toEndOf="@+id/tin2"
-        app:layout_constraintTop_toBottomOf="@+id/plaintext1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/plaintext2"
@@ -143,5 +139,8 @@
         android:text="end date\nyyyy/MM/dd"
         app:layout_constraintStart_toEndOf="@+id/tin3"
         app:layout_constraintTop_toBottomOf="@+id/plaintext3" />
+
+
+
 
 </android.support.constraint.ConstraintLayout>
